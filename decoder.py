@@ -14,7 +14,7 @@ DECIMATED_RATE = 6000
 
 FILENAME = sys.argv[1]
 
-FILENAME = 'sanples/234deg_long_1.wav'
+FILENAME = 'samples/234deg_long_1.wav'
 
 # Whether to show the plots of every step or not
 PLOT_STEPS = False
