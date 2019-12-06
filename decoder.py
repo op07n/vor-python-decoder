@@ -12,10 +12,6 @@ import matplotlib.pyplot as plt
 
 DECIMATED_RATE = 6000
 
-# FILENAME = sys.argv[1]
-
-FILENAME = 'samples/234deg_long_1.wav'
-
 # Whether to show the plots of every step or not
 PLOT_STEPS = False
 # Whether to show the plots of phase of reference and variable signals
@@ -70,7 +66,7 @@ def lowpass(signal, width, attenuation, f):
 
     # Design filter
     taps = scipy.signal.firwin(N, f_norm, window=("kaiser", beta))
-    print("Lowpass filtering with {} taps".format(N))
+    st.wrtite("Lowpass filtering with {} taps".format(N))
 
     # Filter and create new Signal object
     result = Signal(
@@ -113,7 +109,7 @@ def bandpass(signal, width, attenuation, f1, f2):
         window=("kaiser", beta),
         pass_zero=False
     )
-    print("Bandpass filtering with {} taps".format(N))
+    st.wrtite("Bandpass filtering with {} taps".format(N))
 
     # Filter and create new Signal object
     result = Signal(
@@ -272,13 +268,29 @@ def compare_phases(ref_signal, var_signal):
 
 def main():
 
+    sampleFile = st.selectbox(
+         "Select sample file:", 
+         ("samples/177deg_long_1.wav",
+         "samples/177deg_short_1.wav",
+         "samples/177deg_short_2.wav",
+         "samples/234deg_long_1.wav",
+         "samples/234deg_long_2.wav",
+         "samples/234deg_short_1.wav",
+         "samples/234deg_short_2.wav",
+         "samples/234deg_short_3.wav",
+         "samples/293deg_long_1.wav",
+         "samples/293deg_long_2.wav",
+         "samples/293deg_short_1.wav",
+         "samples/293deg_short_2.wav")
+    )
+    
     # Load input from wav
-    rate, samples = scipy.io.wavfile.read(FILENAME)
+    rate, samples = scipy.io.wavfile.read(sampleFile)
     if samples.ndim > 1:
         # Keep only one channel if audio is stereo
         samples = samples[:, 0]
     input_signal = Signal(samples, rate)
-    print("Input sample rate:", rate)
+    st.wrtite("Input sample rate:", rate)
 
     plot_signal(input_signal, "Input")
 
