@@ -290,7 +290,7 @@ def main():
         # Keep only one channel if audio is stereo
         samples = samples[:, 0]
     input_signal = Signal(samples, rate)
-    st.wrtite("Input sample rate:", rate)
+    st.write("Input sample rate:", rate)
 
     plot_signal(input_signal, "Input")
 
