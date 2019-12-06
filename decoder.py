@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+import os
+import streamlit as st
+
 import sys
 import copy
 import numpy as np
@@ -7,9 +10,13 @@ import scipy.io.wavfile
 import scipy.signal
 import matplotlib.pyplot as plt
 
+matplotlib.use('Agg') # This is mandatory, otherwise st crashes!
+
 DECIMATED_RATE = 6000
 
 FILENAME = sys.argv[1]
+
+FILENAME = 'sanples/234deg_long_1.wav'
 
 # Whether to show the plots of every step or not
 PLOT_STEPS = False
@@ -339,9 +346,11 @@ def main():
     plot_signal(var_signal, "Variable signal")
 
     bearing = compare_phases(ref_signal, var_signal)
-    print("Bearing: {}°".format(bearing))
+    st.write("Bearing: {}°".format(bearing))
 
-    plt.show()
+    # plt.show()
+    st.pyplot()
+    plt.close()
 
 if __name__ == "__main__":
 
