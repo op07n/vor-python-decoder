@@ -66,7 +66,7 @@ def lowpass(signal, width, attenuation, f):
 
     # Design filter
     taps = scipy.signal.firwin(N, f_norm, window=("kaiser", beta))
-    st.wrtite("Lowpass filtering with {} taps".format(N))
+    st.write("Lowpass filtering with {} taps".format(N))
 
     # Filter and create new Signal object
     result = Signal(
@@ -109,7 +109,7 @@ def bandpass(signal, width, attenuation, f1, f2):
         window=("kaiser", beta),
         pass_zero=False
     )
-    st.wrtite("Bandpass filtering with {} taps".format(N))
+    st.write("Bandpass filtering with {} taps".format(N))
 
     # Filter and create new Signal object
     result = Signal(
