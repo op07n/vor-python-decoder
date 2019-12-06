@@ -10,8 +10,6 @@ import scipy.io.wavfile
 import scipy.signal
 import matplotlib.pyplot as plt
 
-matplotlib.use('Agg') # This is mandatory, otherwise st crashes!
-
 DECIMATED_RATE = 6000
 
 FILENAME = sys.argv[1]
