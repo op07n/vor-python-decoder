@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 
 DECIMATED_RATE = 6000
 
-FILENAME = sys.argv[1]
+# FILENAME = sys.argv[1]
 
 FILENAME = 'samples/234deg_long_1.wav'
 
